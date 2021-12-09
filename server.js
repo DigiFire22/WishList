@@ -1,26 +1,15 @@
 const express = require('express');
-const date = require(__dirname+'/getDate.js'); 
+const mainRoutes = require('./routes/mainRoutes')
+const errorRoute = require('./routes/errorRoutes')
 
 const app = express();
+app.set('view engine', 'ejs');
+app.use(express.urlencoded({extended: true})); //get date from request body
+app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-    response.send('Hello, World!')
-});
 
-app.get('/getdate', (req, res) => { //req - request, res - response
-    let today = date.getDate();
-    res.send(today);
-
-});
-
-app.get('/weekday', (req, res) => {
-    let weekday = date.getWeekDay();
-    res.send(weekday)
-});
-
-app.get('*', (req, res) => {
-    res.send('404. page not found')
-});
+app.use(mainRoutes);
+app.use(errorRoute);
 
 port = 3000;
 app.listen(port, () => {
