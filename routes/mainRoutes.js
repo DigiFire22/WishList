@@ -11,4 +11,6 @@ router.get('/weekday', mainController.getWeekday);
 
 router.post('/', mainController.postWish);
 
+router.post('/deleteWish', mainController);
+
 module.exports = router;

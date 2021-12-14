@@ -14,6 +14,21 @@
             <input type="text" name="userWish" placeholder="add a wish">
             <button type="submit">Add a wish</button>
         </form>
+
+        <div class="wish-container">
+            <ul>
+                <% for(let i = 0; i < myWishes.lenght; i++) { %>
+                        <li><%= myWishes[i].description %>
+                        <form action="/deleteWish" style="display: inline-block;">
+                            <input type="hidden" name="wishToDelete" value="<%= myWishes[i].description %>">
+                            <button type="submit">X</button>
+                        </form>
+                        
+                        </li>
+            
+                <% } %>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
