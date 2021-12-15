@@ -12,7 +12,7 @@ app.use(express.static('images'));
 app.use(mainRoutes);
 app.use(errorRoute);
 
-port = 1000;
+port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}.`)
 });
