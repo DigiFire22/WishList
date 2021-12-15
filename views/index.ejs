@@ -10,8 +10,9 @@
         <h1>
             <%= dateToRender %>
         </h1>
-        <form action="/" method="POST">
+        <form action="/" method="POST" enctype="multipart/form-data">
             <input type="text" name="userWish" placeholder="add a wish">
+            <input type="file" name="userFile">
             <button type="submit">Add a wish</button>
         </form>
 
@@ -23,7 +24,8 @@
                             <input type="hidden" name="wishToDelete" value="<%= myWishes[i].description %>">
                             <button type="submit">X</button>
                         </form>
-                        
+                        <img src="<%= myWishes[i].imageUrl %>" alt="">
+
                         </li>
             
                 <% } %>

@@ -6,12 +6,13 @@ const app = express();
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true})); //get date from request body
 app.use(express.static('public'));
+app.use(express.static('images'));
 
 
 app.use(mainRoutes);
 app.use(errorRoute);
 
-port = 3000;
+port = 1000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}.`)
 });
